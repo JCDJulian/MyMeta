@@ -8,19 +8,16 @@
 	"permissions": [
 		"activeTab",
 		"http://*/*",
-		"https://*/*"
+		"https://*/*",
+		"storage"
 	],
 
 	"browser_action": {
 		//"default_icon": "icon.png",
 	},
 
-	"background": {
-		"scripts": ["background.js"]
-	},
-
 	"content_scripts": [{
-		"js": ["jquery.min.js", "jquery-ui.min.js"],
+		"js": ["jquery.min.js", "jquery-ui.min.js", "arbiter.js"],
 		"matches": ["http://*/*", "https://*/*"],
 		"run_at": "document_end"
 		}]
