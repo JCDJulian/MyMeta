@@ -1,7 +1,7 @@
 var metaURL = window.location.href;
 var scores = null;
 
-$("<p>"+metaURL+"</p>").insertAfter(".metascore_w");
+$("<p>"+metaURL+"</p>").insertAfter(".xlarge");
 
 
 $.ajax({//Get critic scores from  a MetaCritic API on Mashape
