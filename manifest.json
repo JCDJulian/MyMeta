@@ -20,7 +20,7 @@
 
 	"content_scripts": [{
 		"js": ["jquery.min.js", "jquery-ui.min.js", "arbiter.js"],
-		"matches": ["http://*/*", "https://*/*"],
+		"matches": ["http://www.metacritic.com/*", "http://www.metacritic.com/movie/*"],
 		"run_at": "document_end"
 		}]
 
