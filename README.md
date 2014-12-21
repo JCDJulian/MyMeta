@@ -3,6 +3,8 @@ MyMeta
 
 Chrome extension that allows users to see normalized review scores on Metacritic based on a custom list of their favorite publications' reviews.
 
+Download from Chrome Store here: https://chrome.google.com/webstore/detail/mymeta-customized-metacri/ljfogjokjmjlaaemkgbnhiodpebjcngc
+
 Instructions
 =========
 
