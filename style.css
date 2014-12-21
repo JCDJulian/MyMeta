@@ -1,4 +1,18 @@
-ul
-{
-	list-style-type: none;
+h3{
+	text-align:center;
+}
+
+body {
+	width: 120px;
+}
+
+p{
+	text-align: center;
+	margin:0;
+	padding:0;
+}
+
+.remove{
+	display:block;
+	margin: 0 auto;
 }

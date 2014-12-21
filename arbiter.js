@@ -13,7 +13,6 @@ chrome.storage.sync.get("publications", function(items) { //get the object publi
         }
         else {
             faveList = items.publications;
-            console.log(faveList);
         }
     });
 
@@ -30,10 +29,7 @@ $.ajax({//Get critic scores from  a MetaCritic API on Mashape
     dataType: "json",
     success: function(data)
     {
-    	//console.log(data);
-        //console.log(faveList);
     	arbScore = arbitrate(data.result, faveList);
-        //console.log(arbScore);
         insert(arbScore)
     }
 });
@@ -54,14 +50,12 @@ function arbitrate(data, faveList) {
     for (review in data) {//iterate throught the data
 
         matchIndex = $.inArray(data[review].critic, faveList);
-        console.log(matchIndex);
         if (matchIndex != -1){//if the publication is in the favorite's list
             arbScore += parseInt(data[review].score, 10);//add it to the arbscore
             pubCounter++; //increment pubCounter
         }
     }
     arbScore = (arbScore/pubCounter);    //divide final arbScore by pubCounter to get new average
-    console.log(arbScore);
     return arbScore;
 }
 
@@ -80,7 +74,6 @@ function getFaveList()
         }
         else {
             faveList = items.publications;
-            console.log(faveList);
             return faveList;
         }
     });
@@ -89,6 +82,10 @@ function getFaveList()
 }
 
 function insert(arbScore){
+    if(isNaN(arbScore)){
+        $("<p>No scores found from favorite publications.</p>").insertAfter(".xlarge");
+    }
+    else {
     $("<p>Score From Your Favorite Publications: "+arbScore+"</p>").insertAfter(".xlarge");
-    return;
+    }
 }

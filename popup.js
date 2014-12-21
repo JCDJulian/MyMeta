@@ -14,9 +14,8 @@ $(document).ready(function() {
             items.publications = [];
             pubs = items;
         }
-        //console.log(pubs);
         for (var i in pubs.publications) { //for each publication, append to HTML w/ remove button
-            $("#pubList").append("<li>" + pubs.publications[i] + "</li>" + 
+            $("#pubList").append("<p class='pub'>" + pubs.publications[i] + "</p>" + 
                 "<button type='button' class='remove'>Remove</button>" +
                 "<br />");
         }
@@ -30,7 +29,6 @@ $(document).ready(function() {
             }
             prevPub.remove(); //remove the publication element it's attached to
             $(this).remove(); //then remove the button
-            console.log(pubs.publications);
 
             chrome.storage.sync.set({
                 'publications': pubs.publications
@@ -60,8 +58,7 @@ function saveChanges(publications) {
         return;
     } else {
         publications.push(userInput); //add it to the array
-        console.log(publications); //debugging
-        $("#pubList").append("<li>" + userInput + "</li>" + //append it in HTML w/ remove button
+        $("#pubList").append("<p class='pub'>" + userInput + "</p>" + //append it in HTML w/ remove button
             "<button type='button' class='remove'>Remove</button>" +
             "<br />");
 
@@ -70,13 +67,11 @@ function saveChanges(publications) {
             var prevPub = $(this).prev();
             for (var pub in publications) { //iterate through storage and remove matching publications
                 if (publications[pub].valueOf() == prevPub.text().valueOf()) {
-                    //console.log("Testing!");
                     publications.splice(pub, 1);
                 }
             }
             prevPub.remove(); //remove the publication li it's attached to
             $(this).remove(); //then remove the button
-            console.log(publications);
 
             chrome.storage.sync.set({
                 'publications': publications

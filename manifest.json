@@ -3,12 +3,10 @@
 
 	"name" : "Arbiter",
 	"description": "Custom Metacritic averages from select publications.",
-	"version": "0.1",
+	"version": "1.0",
 
 	"permissions": [
 		"activeTab",
-		"http://*/*",
-		"https://*/*",
 		"storage",
 		"https://byroredux-metacritic.p.mashape.com/"
 	],
